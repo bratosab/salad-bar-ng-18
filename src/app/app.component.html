@@ -1,38 +1,14 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Salad Bar</span>
-    <span class="example-spacer"></span>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      routerLink="kitchen"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>kitchen</mat-icon>
-    </button>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
-    @if (name$ | async; as name) {
-      <span>Hello, {{ name }}.</span>
-    }
-    <span class="example-spacer"></span>
-    <span *ngIf="orderId$ | async as orderId"
-      >Your order ID : {{ orderId }}</span
-    >
-  </mat-toolbar-row>
+<mat-toolbar>
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Salad Bar</span>
+  <span class="spacer"></span>
+  <button mat-icon-button routerLink="/kitchen">
+    <mat-icon>kitchen</mat-icon>
+  </button>
 </mat-toolbar>
 
 <router-outlet />
+
+<ng-container *ngIf="logChangeDetection()"></ng-container>

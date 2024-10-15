@@ -6,12 +6,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
 import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
 import { provideStore } from '@ngxs/store';
+import { provideHttpClient } from '@angular/common/http';
+import { OrderState } from './store/order.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(),
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideStore([], withNgxsReduxDevtoolsPlugin(), withNgxsRouterPlugin()),
+    provideStore([OrderState], withNgxsReduxDevtoolsPlugin(), withNgxsRouterPlugin()),
   ],
 };
